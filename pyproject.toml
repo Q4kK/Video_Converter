@@ -1,16 +1,17 @@
 [tool.poetry]
-name = "video-converter"
+name = "src"
 version = "0.1.0"
 description = ""
 authors = ["q4kk <quantumstar4k@gmail.com>"]
-readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 ffmpeg-python = "^0.2.0"
+wmi = "^1.5.1"
 
 [tool.poetry.group.dev.dependencies]
 ffmpeg-python = "^0.2.0"
+ffmpeg = "^1.4.0"
 
 [build-system]
 requires = ["poetry-core"]
