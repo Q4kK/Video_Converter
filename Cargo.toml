@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 tasklist = "0.2.13"
+tokio = "1.36.0"
