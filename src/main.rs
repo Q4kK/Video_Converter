@@ -1,16 +1,22 @@
 use tasklist;
-use tokio;
+use tokio::task;
 
 fn main() {
+    let task = tasklist::find_first_process_id_by_name;
     unsafe {
-        if tasklist::find_first_process_id_by_name("obs64.exe").is_some() {
-            let obs = tasklist::find_process_id_by_name("obs64.exe");
+        if task("obs64.exe").is_some() {
+            check_if_idle.await?;
+            //
         } else {
         print!("No obs :)");
         }
     }
 }
 
-async fn await_idle() {
-// Wait for obs-ffmpeg-mux.exe to stop running
-}
+const check_if_idle = task::spawn(async {
+    while true {
+        if task("obs-ffmpeg-mux").is_some() {
+            break true;
+        }
+    }
+});
